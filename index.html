@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ci's school tips</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(-45deg, navy, turquoise);
+            background-size: 400% 400%;
+            animation: oceanFade 10s ease infinite;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        @keyframes oceanFade {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* TITLE - 0.5 seconds */
+        h1 {
+            font-size: 3em;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: slideFade 0.5s ease-out forwards;
+        }
+
+        @keyframes slideFade {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* DESCRIPTION - starts at 0.5s, ends at 0.8s */
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* BUTTONS - start at 0.8s, finish at 1s */
+        .buttons {
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 0.2s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Buttons style */
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background-color: white;
+            color: #2a5298;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+            button:hover {
+                background-color: cyan;
+                color: black;
+                transform: scale(1.1);
+            }
+
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 40px 50px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 15px rgba(64, 224, 208, 0.35), 0 0 30px rgba(64, 224, 208, 0.15);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes glowPulse {
+            0% {
+                box-shadow: 0 0 15px rgba(64, 224, 208, 0.25), 0 0 30px rgba(64, 224, 208, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 25px rgba(64, 224, 208, 0.45), 0 0 45px rgba(64, 224, 208, 0.2);
+            }
+
+            100% {
+                box-shadow: 0 0 15px rgba(64, 224, 208, 0.25), 0 0 30px rgba(64, 224, 208, 0.1);
+            }
+        }
+
+        .corner-btn {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            line-height: 16px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            opacity: 0.05;
+            cursor: pointer;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+            .corner-btn:hover {
+                background: transparent;
+                box-shadow: none;
+                opacity: 0.05;
+            }
+
+        .name-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+            .name-link:hover {
+                color: cyan;
+                text-shadow: 0 0 8px cyan;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h1><a href="https://guns.lol/ciperuoy" target="_blank" class="name-link">ciperuoy</a>'s school tips</h1>
+        <p id="randomDesc"></p>
+
+        <div class="buttons">
+            <button onclick="goToWebsite('https://www.ixl.com')">IXL</button>
+            <button onclick="goToWebsite('https://www.amplify.com')">Amplify</button>
+            <button onclick="goToWebsite('https://www.soraapp.com')">Sora</button>
+
+            <button class="corner-btn" onclick="goToSubdomain('games')">:)</button>
+
+        </div>
+    </div>
+
+    <script>
+        function goToSubdomain(sub) {
+            window.location.href = "https://ciperuoy.github.io/" + sub;
+        }
+
+        function goToWebsite(url) {
+            window.location.href = url;
+        }
+
+        const descriptions = [
+            "THIS WHOLE WEBSITE IS CREATED BY CHATGPT!!",
+            "no way ts would get blocked lmfaooo",
+            "do your science homework brodie",
+            "dont pull out your phone in front of the teachers...",
+            "chatgpt made",
+            "educational i think",
+            "ciperuoy is yourepic backwards",
+            "u werent supposed to find this",
+            "u got ts kiddo",
+            "KEEP PUSHING!!",
+            "oh noo oh noooow0od0oojdwajodjodawjok",
+            "ur tuff twin",
+            "u not slick twin ik u js blew one",
+            "let me guess, ur not here for the education",
+            "how'd you find ts website??",
+            ""
+        ];
+
+        const descElement = document.getElementById("randomDesc");
+        const randomIndex = Math.floor(Math.random() * descriptions.length);
+
+        descElement.textContent = descriptions[randomIndex];
+    </script>
+
+</body>
+</html>
