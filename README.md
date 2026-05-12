@@ -1,2 +1,0 @@
-# chicoforlife.github.io
-webstiewebsitewiwdbtie
